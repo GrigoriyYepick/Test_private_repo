@@ -19,6 +19,11 @@ $url = "$repoUrl/archive/$latestVersion.zip"
 $download_dir = "C:\Temp\#Downloads"
 $download_path = "$download_dir\test_repo.zip"
 
+if (-not (Test-Path -Path $download_dir ))
+{
+    New-Item -Path $download_dir -ItemType Container | Out-Null
+}
+
 $output = "Release artifact url: " + $url
 Write-Output $output
 
